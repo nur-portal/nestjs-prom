@@ -1,0 +1,36 @@
+{
+  "name": "@nur-portal/nestjs-prom",
+  "version": "0.0.1",
+  "description": "Prometheus module for NestJS",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nur-portal/nestjs-prom.git"
+  },
+  "keywords": [
+    "prometheus",
+    "nestjs"
+  ],
+  "author": "Dmitry Teslitsky <dmitryteslitsky@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nur-portal/nestjs-prom/issues"
+  },
+  "homepage": "https://github.com/nur-portal/nestjs-prom#readme",
+  "dependencies": {
+    "prom-client": "^14.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.0.0",
+    "@typescript-eslint/parser": "5.0.0",
+    "eslint": "8.0.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.2",
+    "prettier": "2.4.1",
+    "typescript": "4.4.4"
+  }
+}
