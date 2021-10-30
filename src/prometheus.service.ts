@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import {
-  collectDefaultMetrics,
   Counter,
   Gauge,
   Histogram,
   Registry,
   Summary,
+  register,
 } from 'prom-client';
 import {
   IHistogramMetricArguments,
@@ -22,18 +22,8 @@ import {
 
 @Injectable()
 export class PrometheusService {
-  private readonly registry: Registry;
-
-  constructor() {
-    this.registry = new Registry();
-
-    collectDefaultMetrics({
-      register: this.registry,
-    });
-  }
-
-  getRegistry(): Registry {
-    return this.registry;
+  getDefaultRegistry(): Registry {
+    return register;
   }
 
   getCounter(args: IMetricArguments) {
@@ -81,7 +71,8 @@ export class PrometheusService {
     labelNames?: string[];
     buckets?: number[];
   }): GenericMetric {
-    const metric: GenericMetric = this.getRegistry().getSingleMetric(name);
+    const metric: GenericMetric =
+      this.getDefaultRegistry().getSingleMetric(name);
 
     switch (type) {
       case MetricType.Gauge:
@@ -132,7 +123,7 @@ export class PrometheusService {
         return new Counter({
           name: name,
           help: help || `${name} ${type}`,
-          labelNames,
+          labelNames: labelNames ?? [],
         });
     }
   }
