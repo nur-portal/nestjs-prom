@@ -83,7 +83,7 @@ export class PrometheusService {
         return new Gauge({
           name: name,
           help: help || `${name} ${type}`,
-          labelNames,
+          labelNames: labelNames ?? [],
         });
 
       case MetricType.Histogram:
@@ -94,7 +94,7 @@ export class PrometheusService {
         const histogramConfig = {
           name: name,
           help: help || `${name} ${type}`,
-          labelNames,
+          labelNames: labelNames ?? [],
         };
 
         if (buckets) {
@@ -111,7 +111,7 @@ export class PrometheusService {
         return new Summary({
           name: name,
           help: help || `${name} ${type}`,
-          labelNames,
+          labelNames: labelNames ?? [],
         });
 
       case MetricType.Counter:
