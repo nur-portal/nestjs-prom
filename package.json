@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/nur-portal/nestjs-prom.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "keywords": [
     "prometheus",
     "nestjs"
