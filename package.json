@@ -1,6 +1,6 @@
 {
   "name": "@nur-portal/nestjs-prom",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc1",
   "description": "Prometheus module for NestJS",
   "main": "dist/index.js",
   "files": ["dist"],

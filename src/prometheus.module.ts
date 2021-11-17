@@ -8,16 +8,15 @@ import { PrometheusService } from './prometheus.service';
 import { PrometheusOptions } from './interfaces/prometheus-options';
 
 @Global()
-@Module({
-  providers: [PrometheusService],
-  exports: [PrometheusService],
-})
+@Module({})
 export class PrometheusModule {
   static register(options?: PrometheusOptions): DynamicModule {
     PrometheusModule.configure(options);
 
     return {
       module: PrometheusModule,
+      providers: [PrometheusService],
+      exports: [PrometheusService],
     };
   }
 
