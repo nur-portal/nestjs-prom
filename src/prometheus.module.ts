@@ -1,4 +1,4 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Global, Module } from '@nestjs/common';
 import * as client from 'prom-client';
 import {
   collectDefaultMetrics,
@@ -7,6 +7,7 @@ import {
 import { PrometheusService } from './prometheus.service';
 import { PrometheusOptions } from './interfaces/prometheus-options';
 
+@Global()
 @Module({})
 export class PrometheusModule {
   static register(options?: PrometheusOptions): DynamicModule {
